@@ -1,7 +1,13 @@
-#include <SFML\Graphics.hpp>
+//#include <SFML\Graphics.hpp>
+#include <iostream>
 
 int main()
 {
+
+	/* SFML STUFF
+
+	=============================================================================================
+
 	//Create Window
 	sf::RenderWindow* window = new sf::RenderWindow(sf::VideoMode(1000, 600), "Backup Utility");
     
@@ -42,6 +48,7 @@ int main()
 			}
         }
     }
+	*/
 
 	//Success!
 	return 0;
