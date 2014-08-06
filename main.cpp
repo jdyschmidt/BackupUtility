@@ -1,8 +1,44 @@
 //#include <SFML\Graphics.hpp>
 #include <iostream>
+#include <string>
+#include <map>
 
-int main()
+enum inputType {
+	quit,
+	nothing,
+};
+
+
+
+int main(int argc, char* argv[])
 {
+	bool running = true;
+	std::string inputString;
+	inputType input = inputType::nothing;
+	std::map<std::string,inputType> inputMap;
+	inputMap["quit"] = quit;
+
+	while (running) {
+		getline(std::cin,inputString);
+		try {
+			input = inputMap.at(inputString);
+		}
+		catch (std::out_of_range e) {
+			std::cout<<"Invalid input"<<std::endl;
+		}
+
+		switch (input) {
+		case quit:
+			running = false;
+			break;
+		default:
+			break;
+		}
+	}
+
+
+
+
 
 	/* SFML STUFF
 
