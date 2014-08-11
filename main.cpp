@@ -2,34 +2,52 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <algorithm>
 
-enum inputType {
+enum cmdType {
 	quit,
+	encrypt,
+	decrypt,
 	nothing,
 };
 
-
+enum encryptionType {
+	none,
+};
 
 int main(int argc, char* argv[])
 {
 	bool running = true;
 	std::string inputString;
-	inputType input = inputType::nothing;
-	std::map<std::string,inputType> inputMap;
-	inputMap["quit"] = quit;
+	std::string cmdString;
+	cmdType cmd = cmdType::nothing;
+	std::map<std::string,cmdType> cmdMap;
+	cmdMap["quit"] = quit;
+	cmdMap["encrypt"] = encrypt;
+	cmdMap["decrypt"] = decrypt;
+	encryptionType encryption = encryptionType::none;
+	std::map<std::string,encryptionType> encryptionMap;
+	encryptionMap["none"] = none;
+
+	std::cout<<"JAM Backup and Encryption Utility"<<std::endl;
 
 	while (running) {
 		getline(std::cin,inputString);
+		cmdString = inputString.substr(0, inputString.find_first_of(" "));
+		std::transform(cmdString.begin(), cmdString.end(), cmdString.begin(), ::tolower);
 		try {
-			input = inputMap.at(inputString);
+			cmd = cmdMap.at(cmdString);
 		}
 		catch (std::out_of_range e) {
-			std::cout<<"Invalid input"<<std::endl;
+			std::cout<<"Invalid command"<<std::endl;
 		}
 
-		switch (input) {
+		switch (cmd) {
 		case quit:
 			running = false;
+			break;
+		case encrypt:
+
 			break;
 		default:
 			break;
