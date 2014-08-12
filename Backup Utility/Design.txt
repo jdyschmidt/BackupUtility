@@ -1,0 +1,8 @@
+Features:
+-Back up selected files/folders
+-Remember profiles of what to back up
+	New / Copy / Rename / Delete
+-Sync down versus sync up
+	Toggle Switch or Separate (?)
+-Automatic scheduled background backup service
+	Low resource consumption -> "timecheck"
