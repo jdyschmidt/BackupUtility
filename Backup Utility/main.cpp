@@ -85,6 +85,22 @@ void none(std::string inFile, std::string outFile, std::string cipher) {
 	writeFile.close();
 }
 
+//Write a file from a string with XOR encrpytion
+void xor(std::string inFile, std::string outFile, std::string cipher) {
+	//Open file in output mode
+	std::ofstream writeFile;
+	//Create the file
+	writeFile.open(outFile);
+	//Save the contents of the input file to a string
+	std::string contents = getFileContentsString(inFile);
+	
+	//actual encryption goes here
+
+	//This << operator is the same for any stream (eg. std::cout). It writes the string to the stream
+	writeFile << contents;
+	writeFile.close();
+}
+
 //Write a file from binary in whitespace
 void eWhitespace(std::string inFile, std::string outFile, std::string cipher) {
 	std::ofstream writeFile;
